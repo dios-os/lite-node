@@ -1,6 +1,6 @@
-# How to Run This Blockchain Synchronization Program in Visual Studio Code (VS Code)
+# How to Run a DIOS Node in Visual Studio Code (VS Code)
 
-This guide will walk you through the process of setting up and running this Node.js-based blockchain synchronization program on your computer, even if you have no prior programming experience.
+This guide will walk you through the process of setting up and running this Node.js-based blockchain node program on your computer, even if you have no prior programming experience.
 
 ---
 
@@ -38,10 +38,13 @@ Open it and type in the command: node -v
 
 To run the program, you need to have the project files on your computer.
 
-### 1. Download from a ZIP File (Simple Method)
-1. If you received the project as a `.zip` file, locate it in your Downloads folder.
-2. Right-click the file and select **Extract All** (Windows) or double-click to unzip it (macOS/Linux).
-3. Open the extracted folder.
+### 1. Download from GitHub (Simple Method)
+
+1. Go to the project’s GitHub repository page via this link: https://github.com/dios-os/lite-node.git
+2. Click the green Code button, then select **Download ZIP**.
+3. Once the file finishes downloading, locate it in your Downloads folder.
+4. Right-click the file and select **Extract All** (Windows) or double-click to unzip it (macOS/Linux).
+5. Open the extracted folder.
 
 ---
 
@@ -74,7 +77,7 @@ This project requires additional Node.js packages to run.
 ## Step 5: Set Up Environment Variables
 1. This program requires environment variables. Check that you have a `.env` file in the project folder.
 
-2. The `.env` file will either have a link in it, or this link will be provided to you separately.
+2. The `.env` file should have some data which will be provided to you separately.
 
 ---
 
@@ -84,34 +87,18 @@ Now you are ready to run the program!
 ### 1. Start the Server
 1. In the terminal, run:
    ```sh
-   node app.js
+   npx nodemon src/index.js
    ```
 
 2. You should see an output similar to:
    ```sh
-   Listening on Localhost: 2000
+   DIOS Node Activated and Listening on Localhost: 1000.
+   Loading Dashboard...
 
-   Update transaction pool on sync with {
-    transactionInPool: [
-        {
-        transaction_id: '0fcdb9fd-c30c-4f4c-ae31-f6602e6625a9',
-        transaction_time: '11:37:13.121',
-        transaction_hash: '3fdf039d502d4c4a806893bc5441829d259b56228a110052773ad7b33881b0c5'
-        }
-    ]
-    }
-    Replace chain on sync with [
-    {
-        blockIndex: '0000000',
-        timeStamp: '11:07pm',
-        previousHash: 'Test Previous Hash',
-        hash: 'Test Hash',
-        data: 'Ahtiso DIOS Test Network',
-        validator: 'Ahtiso'
-    }
-    ]
    ```
-   The outputs you see above are the latest state of the Transaction Pool and Blockchain. The order might be slightly different for each user, however the important thing is that you receive these outputs which show the functioning Transaction Pool and Blockchain.
+
+3. A webpage should open automatically with your node's dashboard. This dashboard provides information about   
+   your node, as well as information on the state of the network including the Transaction Pool and Blockchain. 
 
 ---
 
@@ -125,6 +112,6 @@ If you run into any issues, try these steps:
 ---
 
 ## Conclusion
-You have now successfully set up VS Code and run the blockchain synchronization program! If you need further help, contact the project owner or refer to the official documentation of Node.js and VS Code.
+You have now successfully set up VS Code and run the DIOS Node Program! If you need further help, contact the project owner or refer to the official documentation of Node.js and VS Code.
 
 
