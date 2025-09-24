@@ -148,7 +148,9 @@ if (blockchain.length >= MAX_TEST_BLOCKS) {
 
 // Listening on the right port and automatically opens homepage for each node
 server.listen(PORT, () => {
-    console.log(`Listening on Localhost: ${PORT}`);
+    console.log(`DIOS Node Activated and Listening on Localhost: ${PORT}.`);
+    console.log('Loading Dashboard...');
+    
     open(`http://localhost:${PORT}/node-home`);
 
     if (PORT !== DEFAULT_PORT){
