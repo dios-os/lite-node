@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!--Page Head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../styles/global_styles.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+
+<!--Page Body -->
+<body id="dashboard_page_body">
+
+    <!--Menu Side Bar___________________________________________________________ -->
+    <div class="sidebar" id="sidebar">
+        <!-- Dashboard Header and Menu Items on Side Bar ___________________-->
+        <h2>Dashboard</h2>
+        <div id="nav-container"></div>
+    </div>
+
+    <!-- Main Page Content ________________________________________________________ -->
+    <div class="main-content">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- Logo Section on Side Bar ___________________-->
+        <div class="logo">
+            <a href="#"> 
+                <!--<img id="logo_image" src="#" alt="Logo">-->
+            </a>
+        </div>
+        <!-- END OF LOGO SECTION ####################################-->
+
+        <!-- # Node Overview Sub Section ### _____________________________ -->
+        <div id="yourNode" class="dashboard-section">
+
+            <!-- Current Date and Time-->
+            <div id="datetime-right-panel">
+                <p style="text-align: right; font-size: 1.5vh;"> <b> Date:</b> <span id="current-date"></span>, <b> Time: </b> <span id="current-time"></span> </p>
+            </div>
+            <hr>
+            <div style="height: 1cm;"></div>
+
+
+            <!-- Page Content -->
+            <h1>Welcome </h1>
+
+            <!-- Card Grid -->
+            <div class="info-card-grid">
+
+                <!-- Card 1 -->
+                <div class="info-card">
+                    <div class="info-card-top">
+                        <p><span id="nodeId">Loading...</span></p>
+                    </div>
+
+                    <div class="info-card-bottom">
+                        <p>Node ID</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="info-card">
+                    <div class="info-card-top">
+                        <p><span id="nodeHealth">Loading...</span></p>
+                    </div>
+
+                    <div class="info-card-bottom">
+                        <p>Node Health</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="height: 1cm;"></div>
+            <hr>
+            <div style="height: 1cm;"></div>
+
+            <div class="welcome-message">
+                <p>
+                    This node is an integral part of the DIOS blockchain network, helping validate 
+                    transactions, secure the ledger, and maintain decentralization.  
+                    Keep an eye on your node’s health and ID to ensure smooth participation 
+                    in the ecosystem.
+
+                    Here’s what you can do:
+                </p>
+            </div>
+
+            <section class="dashboard-features">
+                <div class="feature">
+                    <h3>View Your Node ID</h3>
+                    <p>Quickly identify your node and verify its presence on the network.</p>
+                </div>
+                <div class="feature">
+                    <h3>Check Node Health</h3>
+                    <p>Monitor the status and performance of your node in real-time.</p>
+                </div>
+                <div class="feature">
+                    <h3>Explore the Blockchain</h3>
+                    <p>See the full blockchain, browse blocks, and inspect transaction details.</p>
+                </div>
+                <div class="feature">
+                    <h3>Transaction Pool</h3>
+                    <p>Check pending transactions waiting to be added to the blockchain.</p>
+                </div>
+                <div class="feature">
+                    <h3>Read Documentation</h3>
+                    <p>Access guides and references to better understand your node and network operations.</p>
+                </div>
+            </section>
+
+
+        </div>
+        <!-- END OF SUB SECTION ####################################-->
+
+        
+        <!-- # DIOS Sub Section ### _____________________________ -->
+        <div id="dios" class="dashboard-section" style="display:none;">
+
+            <!-- Row 1: Section Showing Users to be Approved -->
+            <h2> DIOS Blockchain </h2>
+            <div style="height: 1cm;"></div>
+
+            <div class="alert-card-grid">
+                <div class="alert-card">
+                    <div class="alert-card-top">
+                        <table cellspacing="0" cellpadding="8">
+                            <thead>
+                                <tr>
+                                    <th> Block Index </th>
+                                    <th> Previous Hash </th>
+                                    <th> Block Hash </th>
+                                    <th> Timestamp </th>
+                                </tr>
+                            </thead>
+                            <tbody id="blockchain-table-body">
+                                <!-- Table body will be updated here-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-card-bottom" style="background: rgb(4, 160, 250);">
+                    <p>Current Blockchain</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF SUB SECTION ####################################-->
+
+
+        <!-- # Transaction Pool Sub Section ### _____________________________ -->
+        <div id="mempool" class="dashboard-section" style="display:none;">
+            <!-- Row 1: Section Showing Users to be Approved -->
+            <h2> Transaction Pool </h2>
+            <div style="height: 1cm;"></div>
+
+            <div class="alert-card-grid">
+                <div class="alert-card">
+                    <div class="alert-card-top">
+                        <table cellspacing="0" cellpadding="8">
+                            <thead>
+                                <tr>
+                                    <th> Senders Address </th>
+                                    <th> Data </th>
+                                    <th> Transaction ID </th>
+                                    <th> Timestamp </th>
+                                </tr>
+                            </thead>
+                            <tbody id="pending-users-body">
+                                <!-- Table body will be updated here-->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-card-bottom" style="background: rgb(4, 160, 250);">
+                    <p>Pending Transactions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF SUB SECTION ####################################-->
+        
+
+
+        <!-- # Support Sub Section ### _____________________________ -->
+        <div id="support" class="dashboard-section" style="display:none;">
+            <section class="support-page">
+                <h1>A.H Decentralized Intelligent Operating System (DIOS)</h1>
+
+                <p>This project was built using the following stack:</p>
+
+                <h2>Frontend</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+
+                <h2>Backend</h2>
+                <ul>
+                    <li>JavaScript</li>
+                </ul>
+
+                <h2>1. Introduction</h2>
+                <p>The API enables interaction with a blockchain-based network, including:</p>
+                <ul>
+                    <li>Checking network health</li>
+                    <li>Processing transactions</li>
+                    <li>Updating local blockchain ledger</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Base URL</h2>
+                <p>Base URL: <code>http://localhost:3000</code></p>
+                <p><em>(This will be updated for production shortly)</em></p>
+
+                <hr>
+
+                <h2>3. Authentication</h2>
+                <p>This API does not currently include authentication. Future enhancements may include <strong>JWT-based authentication</strong> for security.</p>
+
+                <hr>
+
+                <h2>4. API Endpoints</h2>
+
+                <h3>4.1 Blockchain Status</h3>
+                <p><strong>GET /api/blocks</strong> - Retrieves the current blockchain ledger.</p>
+                <p><strong>Request:</strong></p>
+                <pre><code>GET /api/get-blocks</code></pre>
+                <p><strong>Response (200 OK):</strong></p>
+                <pre><code>[
+            {
+                "blockIndex": "0000000",
+                "timestamp": "7:35",
+                "previousHash": "0a55b7d73028987c696108328b8601b99df4ed035e6a0616ffe266ebd26f0c92",
+                "hash": "e3ed5547f346b226886aeada8ac502647bdd4f6e58d37cde11e0097470abd226",
+                "data": "The Genesis Block of the Ahtiso & Co Education Blockchain. Date: October 15 2024, Time: 7:35pm, Location: Kuwait, Last Hash: 0a55b7d73028987c696108328b8601b99df4ed035e6a0616ffe266ebd26f0c92"
+            }
+            ]</code></pre>
+
+                <hr>
+
+                <h3>4.2 View Transaction Pool</h3>
+                <p><strong>GET /api/transactions</strong> - Retrieves pending transactions in the transaction pool.</p>
+                <p><strong>Request:</strong></p>
+                <pre><code>GET /api/get-transactions</code></pre>
+                <p><strong>Response (200 OK):</strong></p>
+                <pre><code>{
+            "hjkhkhjlk": {
+                "senders_address": "sdgsdfds",
+                "transaction_ID": "hjkjh",
+                "transaction_hash": "hjkhkhjlk",
+                "senders_signature": "qswe",
+                "timestamp": "13:58:45.694"
+            }
+            }</code></pre>
+
+                <hr>
+
+                <h3>4.3 Post a Transaction</h3>
+                <p><strong>POST /api/submit-transaction</strong> - Submit a transaction to the network.</p>
+                <p><strong>Request:</strong></p>
+                <pre><code>POST /api/submit-transaction
+            Content-Type: application/json</code></pre>
+                <p><strong>Body:</strong></p>
+                <pre><code>{
+            "sendersAddress": "sendersAddress",
+            "hashedData": "hashedData",
+            "assignID": "assignID",
+            "signature": "signature"
+            }</code></pre>
+                <p><strong>Response (200 OK):</strong></p>
+                <pre><code>{
+            "message": "Transaction successful."
+            }</code></pre>
+                <p><strong>Error (400 Bad Request):</strong></p>
+                <pre><code>{
+            "error": "Transaction verification failed."
+            }</code></pre>
+
+                <hr>
+
+                <h2>6. Error Handling</h2>
+                <table border="1" cellpadding="6">
+                    <thead>
+                        <tr>
+                            <th>Status Code</th>
+                            <th>Meaning</th>
+                            <th>Example Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>200 OK</td>
+                            <td>Successful request</td>
+                            <td>{ "message": "Success" }</td>
+                        </tr>
+                        <tr>
+                            <td>400 Bad Request</td>
+                            <td>Invalid input/transaction</td>
+                            <td>{ "error": "Transaction verification failed." }</td>
+                        </tr>
+                        <tr>
+                            <td>404 Not Found</td>
+                            <td>Resource not found</td>
+                            <td>{ "error": "Not Found" }</td>
+                        </tr>
+                        <tr>
+                            <td>500 Internal Server Error</td>
+                            <td>Unexpected error</td>
+                            <td>{ "error": "Server Error" }</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+
+                <h2>7. Rate Limits & Security</h2>
+                <ul>
+                    <li><strong>Transactions:</strong> No limit implemented yet.</li>
+                    <li><strong>File Uploads:</strong> No limit implemented yet.</li>
+                    <li><strong>Future Improvements:</strong> JWT authentication and IP rate limiting.</li>
+                </ul>
+
+                <hr>
+
+                <h2>8. Contact & Support</h2>
+                <ul>
+                    <li><strong>Support Email:</strong> to be updated</li>
+                    <li><strong>GitHub Issues:</strong> to be updated</li>
+                    <li><strong>Discord:</strong> to be updated</li>
+                </ul>
+            </section>
+
+            
+        </div>
+        <!-- END OF SUB SECTION ####################################-->
+
+                
+        
+        
+        <div style="height: 1cm;"></div>
+        <hr>
+
+    </div>
+
+
+
+    <!-- Page Scripts _______________________________________________________________________-->     
+
+    <script src="./pages/datetime.js"></script>
+    <script src="./pages/fetchID.js"></script>
+    <script src="./pages/healthStatus.js"></script>
+    <script src="./pages/getBlocks.js"></script>
+    <script src="./pages/getTransactions.js"></script>
+
+
+    <!-- Scripts for Menu -->
+    <script>
+        function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+        }
+    </script>
+
+    <script>
+        fetch('../pages/adminmenu.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.status);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('nav-container').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading menu:', error);
+                document.getElementById('nav-container').innerHTML = 'Failed to load menu';
+            });
+    </script>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.dashboard-section');
+            sections.forEach(sec => sec.style.display = 'none');
+
+            const target = document.getElementById(sectionId);
+            if (target) target.style.display = 'block';
+            }
+    </script>
+    
+
+</body>
+</html>

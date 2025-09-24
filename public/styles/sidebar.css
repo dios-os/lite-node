@@ -1,0 +1,151 @@
+
+/*Side Bar Menu ________________ */
+
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    color: rgb(69, 34, 98);
+    transition: width 0.3s;
+    padding: 1.5rem 1rem 1rem 1rem;
+}
+
+.sidebar.collapsed {
+    width: 20px;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    white-space: nowrap;
+}
+
+.sidebar.collapsed h2 {
+    display: none;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.sidebar ul li {
+    margin: 1rem 0;
+    white-space: nowrap;
+    padding-left: 0;
+    padding-bottom: 1vh;
+}
+
+.sidebar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: block;
+    display: flex;
+    align-items: left;
+}
+
+.sidebar ul li a:hover {
+    background-color: #deeff3;
+    color: #7476f3;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #ecf0f1;
+    padding: 2rem;
+    transition: margin-left 0.3s;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgb(69, 34, 98);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 15px;
+    z-index: 999;
+}
+
+.dashboard-section {
+  padding: 2rem;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: flex;
+        width: 100%;
+    }
+    
+}
+
+/*Hide the menu icon on large screens*/
+@media (min-width: 691px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+
+@media (max-width: 690px) {
+    .nav-container {
+        display: none;
+    }
+
+    .nav-container.active {
+        display: block; 
+        position: absolute; 
+        top: 50px; 
+        left: 0;
+        width: 100%;
+        background: #fff; 
+        z-index: 1000; 
+    }
+
+    .nav-menu {
+        display: block;
+        text-align: center;
+    }
+
+    .nav-menu > li {
+        display: block;
+    }
+
+    .nav-menu > li > a {
+        display: block;
+        padding: 1vw;
+        color: rgb(69, 34, 98);
+        background-color: #f8f8f8;
+    }
+
+    .menu-toggle {
+        display: block;
+        background-color:#fff;
+        padding: 1.5vw;
+        text-align: center;
+        cursor: pointer;
+        margin-left: auto;
+        border:none;
+        width: 8vw;
+    }
+
+    .mega-menu {
+        display: none;
+    }
+
+    .nav-container.active .nav-menu > li:hover .mega-menu {
+        display: block;
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+}
